@@ -5,10 +5,13 @@ var config = require('./config');
 
 var client = new irc.Client(config.irc.server, config.irc.nick, {
   channels: [config.irc.channel],
-  port: 6697,
+  port: config.irc.port,
   debug: true,
   showErrors: true,
-  secure: true,
+  secure: true, 
+  sasl:true,
+  userName:config.irc.username,
+  password:config.irc.password,
   autoConnect: false,
   autoRejoin: true,
   retryCount: 3
